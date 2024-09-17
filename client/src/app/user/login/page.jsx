@@ -1,8 +1,9 @@
+import { Login } from "@/components/Login";
+
 const LoginPage = () => {
   return (
     <div>
-      <input type="text" />
-      <input type="text" />
+      <Login />
     </div>
   );
 };

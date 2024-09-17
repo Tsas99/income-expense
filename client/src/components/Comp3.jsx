@@ -1,4 +1,8 @@
 "use client";
-export const Comp3 = ({ ancestor }) => {
+
+import { useAncestor } from "@/provider/AncestorProvider";
+
+export const Comp3 = () => {
+  const { ancestor } = useAncestor();
   return <>{ancestor}</>;
 };
