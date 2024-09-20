@@ -1,8 +1,1 @@
-{
-  "users": [
-    {
-      "username": "tsas",
-      "password": "tsas0210"
-    }
-  ]
-}
+{"users":[{"userId":"337f33d4-6f09-4284-82e2-de41509cfc47","username":"asd","email":"dd","password":"$2a$10$OVGWdhgENcGxL/Lv9lM5K.U9N60IvGAM6UDhlf9GCIL39LiotIkb6"},{"userId":"57dd5f5c-c88a-4696-9b5f-06e5f460bc5e","username":"asd","email":"asd","password":"$2a$10$xLQE7OZCu4BYM0KBybOe4OFdDeiAc0DzIfbjTN4TDb3dig4Nlq5SW"},{"userId":"961f6de8-dd7d-49bb-944e-e1ac87f55bf5","username":"tsas","email":"tsas0210@gmail","password":"$2a$10$Cd4NRpm61kkRVHM.1lJG4eVXW.3jMQPUkW1ri1/SNgvk5HDKsCDaS"},{"userId":"5a96e29c-5f0f-48b5-9729-cd9582f38ee6","username":"a","email":"b","password":"$2a$10$ZmBs5C4/Q1vK228D2kSuFez.yIPQgcIz.80IlarC2foqtKX9rIdea"},{"userId":"fe5dd372-452b-4619-8227-c5eb4651e548","username":"2","email":"2","password":"$2a$10$bjhVJ60/JFlAtEefd82FYed934qf90PojtYp6Qvl0MgldRKBSmpHq"}]}

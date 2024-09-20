@@ -4,7 +4,7 @@ import { loginController } from "../controllers/users/login.controller.js";
 
 const userRouter = Router();
 
-userRouter.route("/user/login").post(loginController);
-userRouter.route("/user/signup").post(signUpController).get(signUpController);
+userRouter.route("/users/login").post(loginController);
+userRouter.route("/users/signup").post(signUpController);
 
 export default userRouter;
