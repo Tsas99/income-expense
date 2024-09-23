@@ -2,7 +2,8 @@ import { readFileSync } from "fs";
 import { DbPath } from "../../utils/constant.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { env } from "dotenv";
+import env from "dotenv";
+
 env.config();
 
 export const loginController = async (req, res) => {
@@ -18,14 +19,13 @@ export const loginController = async (req, res) => {
   }
 
   const isMatch = await bcrypt.compare(password, user.password);
-  const tokenSecret = "key";
 
   if (!isMatch) {
     res.status(400).send("email or password is wrong");
     return;
   }
 
-  const token = jwt.sign({ email }, process.env.tokenSecret, {
+  const token = jwt.sign({ email }, process.env.SECRET, {
     expiresIn: "5m",
   });
 

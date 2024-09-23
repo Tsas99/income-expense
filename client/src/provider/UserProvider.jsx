@@ -9,8 +9,9 @@ const UserContext = createContext(null);
 export const UserProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
+
   const loginHandlerFunction = async (email, password) => {
-    console.log(email, password);
+    // console.log(email, password);
 
     try {
       const { data } = await axios.post(
@@ -33,11 +34,12 @@ export const UserProvider = ({ children }) => {
     const token = window.localStorage.getItem("token");
     if (token) {
       setIsLoggedIn(true);
-      router.push("/home");
+      router.push("/stepper");
     } else {
       setIsLoggedIn(false);
+      router.push("/user/login");
     }
-  }, [isLoggedIn]);
+  }, []);
   return (
     <UserContext.Provider
       value={{

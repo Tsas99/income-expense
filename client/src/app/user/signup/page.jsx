@@ -62,7 +62,7 @@ const SignupPage = () => {
         email: userInput.email,
         password: userInput.password,
       });
-      push("/login");
+      push("/user/login");
     } catch (error) {
       setError(error.res.data);
     }
@@ -95,7 +95,7 @@ const SignupPage = () => {
         </div>
         <MovePage
           texts={"Already have account?"}
-          href={"/login"}
+          href={"/user/login"}
           text={"Log In"}
         />
       </div>

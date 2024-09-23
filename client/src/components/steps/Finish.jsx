@@ -1,15 +1,19 @@
 "use client";
-import { useUser } from "@/provider/UserProvider";
+import React from "react";
+import { MainSection } from "./MainSection";
 import { Button } from "../Button";
 
-export const Finish = ({ continueHandler }) => {
-  const { name } = useUser();
-
+export const Finish = ({ confirmHandler }) => {
   return (
-    <div>
-      <div>C</div>
-      <Button clickHandler={continueHandler} text={"Go to login"} />
-      <div>{name}</div>
+    <div className="w-[384px] ">
+      <MainSection
+        src={"finish.png"}
+        title={"Good Job!"}
+        desc={
+          "Your very first account has been created. Now continue to dashboard and start tracking"
+        }
+      />
+      <Button clickHandler={confirmHandler} text={"Go to Dashboard"} />
     </div>
   );
 };
