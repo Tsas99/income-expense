@@ -37,7 +37,7 @@ const StepsPage = () => {
   }
 
   return (
-    <div className="flex flex-col gap-[141px] items-center">
+    <div className="flex flex-col gap-[141px] items-center mt-[150px]">
       <TopSection step={step} />
       <ChosenComponents confirmHandler={confirmHandler} />
     </div>

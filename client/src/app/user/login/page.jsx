@@ -7,6 +7,7 @@ import { Question } from "@/components/Question";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/provider/UserProvider";
+import { Logo } from "@/components/Logo";
 
 const LoginPage = () => {
   const { loginHandlerFunction } = useUser();
@@ -37,8 +38,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex flex-row ">
-      <div className=" flex flex-col w-[50%] h-screen items-center">
+    <div className="flex flex-row justify-center items-center ">
+      <div className="flex flex-col w-[50%] h-screen items-center   ">
         <AuthTitle
           title={"Welcome Back"}
           description={"Welcome back, Please enter your details "}
@@ -57,7 +58,7 @@ const LoginPage = () => {
             inputHandler={handleChange}
           />
           {error}
-          <Button text="Log in " onClick={login} />
+          <Button text="Log in " clickHandler={login} />
         </div>
 
         <Question text="Don’t have account?" href="signup" />
