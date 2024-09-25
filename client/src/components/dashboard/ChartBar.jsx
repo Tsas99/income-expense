@@ -1,7 +1,7 @@
+"use client";
 import React from "react";
-import { Chart } from "./Chart";
 
-export const ChartContainer = () => {
+export const ChartBar = () => {
   return (
     <div>
       <div>
@@ -9,7 +9,6 @@ export const ChartContainer = () => {
           <p className="text-base font-semibold mt-4 ml-6">Income - Expense</p>
           <div className="border-b-2 mt-4 "></div>
         </div>
-        <Chart />
       </div>
     </div>
   );

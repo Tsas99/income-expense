@@ -1,14 +1,14 @@
+"use client";
 import React from "react";
-import Link from "next/link";
 
-export const Header = () => {
+export const RecordHeader = () => {
   return (
     <div className="flex flex-row  h-[72px] items-center bg-[#FFFFFF] mt-[22.3px]">
       <div className=" flex flex-row gap-[30.3px] ml-[126.3px] ">
         <img src="/logo-g.png" alt="" className="w-[27.8px] h-[27.4px]" />
-        <div className="flex flex-row gap-6 text-base font-semibold text-[#0F172A] ">
-          <Link href="/dashboard">Dashboard</Link>
-          <Link href="/record">Records</Link>
+        <div className="flex flex-row gap-6 text-base ">
+          <div className="font-normal text-[#0F172A]">Dashboard</div>
+          <div className="font-semibold text-[#0F172A] ">Records</div>
         </div>
       </div>
       <div className="flex flex-row justify-center  gap-6 ml-[811px] ">
