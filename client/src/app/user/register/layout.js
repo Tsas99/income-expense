@@ -2,12 +2,12 @@ import "../../globals.css";
 import { UserProvider } from "@/provider/UserProvider";
 
 export const metadata = {
-  title: "Login",
+  title: "Register ",
   description:
     "From today you're gonna make sure how your incomes and expenses are doing",
 };
 
-export default function loginLayout({ children }) {
+export default function RegisterLayout({ children }) {
   return (
     <html lang="en">
       <body>

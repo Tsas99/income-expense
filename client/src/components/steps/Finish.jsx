@@ -2,18 +2,22 @@
 import React from "react";
 import { MainSection } from "./MainSection";
 import { Button } from "../Button";
+import { FinishIcon } from "./icons/FinishIcon";
 
-export const Finish = ({ confirmHandler }) => {
+export const Finish = ({ continueHandler }) => {
   return (
-    <div className="w-[384px] ">
-      <MainSection
-        src={"finish.png"}
-        title={"Good Job!"}
-        desc={
-          "Your very first account has been created. Now continue to dashboard and start tracking"
-        }
+    <div className="flex flex-col items-center gap-6">
+      <FinishIcon />
+      <div className="text-2xl font-semibold mt-4">Good Job!</div>
+      <div className="text-base font-normal opacity-50 w-[384px]">
+        Your very first account has been created. Now continue to dashboard and
+        start tracking
+      </div>
+      <Button
+        children={<div className="text-white">Go to Dashboard</div>}
+        clickHandler={continueHandler}
+        color="blue"
       />
-      <Button clickHandler={confirmHandler} text={"Go to Dashboard"} />
     </div>
   );
 };

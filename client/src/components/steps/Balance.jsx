@@ -1,27 +1,35 @@
 "use client";
-import React from "react";
-import { MainSection } from "./MainSection";
 
 import { Input } from "../Input";
 import { Button } from "../Button";
+import { BalanceIcon } from "./icons/BalanceIcon";
 
-export const Balance = ({ confirmHandler }) => {
+export const Balance = ({ continueHandler }) => {
+  const clickHandler = () => {
+    continueHandler();
+  };
+
   return (
-    <div className="w-[384px]">
-      <MainSection
-        src={"balance.png"}
-        title={"Set up your cash Balance"}
-        component={
-          <Input
-            type={"text"}
-            placeholder={"Email"}
-            inputHandler={""}
-            name={"Email"}
-          />
-        }
-        desc={"How much cash do you have in your wallet?"}
+    <div className="flex flex-col items-center gap-6">
+      <BalanceIcon />
+      <div className="text-2xl font-semibold mt-4">
+        Set up your cash Balance
+      </div>
+      <Input
+        placeholder="Balance"
+        value={""}
+        inputHandler={""}
+        type="text"
+        name="balance"
       />
-      <Button clickHandler={confirmHandler} text={"Confirm"} />
+      <div className="text-base font-normal opacity-50 w-[384px]">
+        How much cash do you have in your wallet?
+      </div>
+      <Button
+        children={<div className="text-white">Confirm</div>}
+        clickHandler={clickHandler}
+        color="blue"
+      />
     </div>
   );
 };

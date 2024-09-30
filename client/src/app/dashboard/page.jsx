@@ -17,8 +17,8 @@ const page = () => {
           <Board />
         </div>
         <div className="flex flex-row gap-6 justify-center">
-          {/* <ChartBar />
-          <ChartPie /> */}
+          <ChartBar />
+          {/* <ChartPie /> */}
         </div>
         <LastRecords />
       </div>

@@ -1,57 +1,84 @@
 "use client";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { createContext, useContext } from "react";
+
+import { API_URL } from "../utils/constant.js";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
+  const [token, setToken] = useState("");
+  const [loading, setLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const router = useRouter();
 
-  const loginHandlerFunction = async (email, password) => {
-    // console.log(email, password);
-
+  const login = async (email, password) => {
     try {
-      const { data } = await axios.post(
-        "http://localhost:8000/api/users/login",
-        {
-          email,
-          password,
-        }
-      );
-
-      window.localStorage.setItem("token", data.token);
-      setIsLoggedIn(true);
-    } catch (error) {
-      console.log(error);
-
-      throw new Error(error.message);
+      const result = await axios.post(`${API_URL}/login`, {
+        email: email,
+        password: password,
+      });
+      if (result?.data?.token) {
+        window.localStorage.setItem("token", result.data.token);
+        setIsLoggedIn(true);
+        setToken(result.data.token);
+        setLoading(false);
+        router.push("/");
+      } else {
+        window.localStorage.removeItem("token");
+        setIsLoggedIn(false);
+        setToken("");
+        setLoading(false);
+        router.push("/login");
+      }
+    } catch (err) {
+      throw new Error(err.response.data.messge);
     }
   };
+  const register = async (username, email, password) => {
+    try {
+      await axios.post(`${API_URL}/register`, {
+        email: email,
+        password: password,
+        username: username,
+      });
+      router.push("/login");
+    } catch (err) {
+      throw new Error(err.response.data.message);
+    }
+  };
+
   useEffect(() => {
     const token = window.localStorage.getItem("token");
     if (token) {
       setIsLoggedIn(true);
-      router.push("/stepper");
+      setToken(token);
+      setLoading(false);
     } else {
+      window.localStorage.removeItem("token");
       setIsLoggedIn(false);
-      router.push("/user/login");
+      setToken("");
+      setLoading(false);
+      router.push("/login");
     }
   }, []);
   return (
     <UserContext.Provider
       value={{
+        login,
         isLoggedIn,
-        loginHandlerFunction,
+        token,
+        loading,
+        register,
       }}
     >
       {children}
     </UserContext.Provider>
   );
 };
-export const useUser = () => {
+export const useUserContext = () => {
   const user = useContext(UserContext);
   return user;
 };

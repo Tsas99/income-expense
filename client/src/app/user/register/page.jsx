@@ -91,7 +91,11 @@ const SignupPage = () => {
           ))}
 
           <div className="text-red-700 text-center mb-4 ">{error}</div>
-          <Button text={"Sign-Up"} clickHandler={clickHandler} />
+          <Button
+            color="blue"
+            children={<div className="text-white ">Sign-Up</div>}
+            clickHandler={clickHandler}
+          />
         </div>
         <MovePage
           texts={"Already have account?"}

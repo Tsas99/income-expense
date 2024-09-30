@@ -1,13 +1,15 @@
-import React from "react";
+"use client";
 
-export const Button = (props) => {
+export const Button = ({ children, clickHandler, color }) => {
   return (
-    <div>
+    <div
+      className={` border rounded-full w-[384px] h-[48px] bg-${color}-600 text-white`}
+    >
       <button
-        onClick={props.clickHandler}
-        className="w-[384px] h-[48px] rounded-full bg-[#0166FF] text-[#FFFFFF] text-xl font-normal"
+        className="flex justify-center items-center w-[100%] h-[100%]"
+        onClick={clickHandler}
       >
-        {props.text}
+        {children}
       </button>
     </div>
   );
