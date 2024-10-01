@@ -14,9 +14,9 @@ export const UserProvider = ({ children }) => {
 
   const router = useRouter();
 
-  const login = async (email, password) => {
+  const loginHandlerFunction = async (email, password) => {
     try {
-      const result = await axios.post(`${API_URL}/login`, {
+      const result = await axios.post(`${API_URL}/api/users/login`, {
         email: email,
         password: password,
       });
@@ -34,9 +34,12 @@ export const UserProvider = ({ children }) => {
         router.push("/login");
       }
     } catch (err) {
+      console.log(err);
+
       throw new Error(err.response.data.messge);
     }
   };
+
   const register = async (username, email, password) => {
     try {
       await axios.post(`${API_URL}/register`, {
@@ -67,7 +70,7 @@ export const UserProvider = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
-        login,
+        loginHandlerFunction,
         isLoggedIn,
         token,
         loading,

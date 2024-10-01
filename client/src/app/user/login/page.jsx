@@ -24,6 +24,7 @@ const LoginPage = () => {
     const { name, value } = event.target;
     setLoginInput((prev) => ({ ...prev, [name]: value }));
   };
+
   const login = async () => {
     console.log("asd");
 
@@ -32,6 +33,8 @@ const LoginPage = () => {
       await loginHandlerFunction(loginInput.email, loginInput.password);
       router.push("/stepper");
     } catch (error) {
+      console.log(error);
+
       setError("email or  password is wrong");
     }
   };

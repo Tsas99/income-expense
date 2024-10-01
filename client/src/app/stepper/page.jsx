@@ -25,6 +25,7 @@ const StepsPage = () => {
   const continueHandler = () => {
     if (step == 2) {
       router.push("/dashboard");
+      return;
     }
     setStep((prev) => prev + 1);
   };

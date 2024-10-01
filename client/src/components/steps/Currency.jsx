@@ -25,9 +25,10 @@ export const Currency = ({ continueHandler }) => {
       alert("Currency songono uu!");
       return;
     }
+
     try {
       await axios.post(
-        `${API_URL}/user/currency`,
+        `${API_URL}/api/user/currency`,
         {
           currency: currency,
         },
@@ -38,11 +39,12 @@ export const Currency = ({ continueHandler }) => {
         }
       );
     } catch (error) {
-      if (error.response.data.message.includes("jwt")) {
-        logOut();
-        return;
-      }
-      setError(error.response.data.message);
+      console.log(error);
+      // if (error.response.data.message.includes("jwt")) {
+      //   logOut();
+      //   return;
+      // }
+      // setError(error.response.data.message);
       return;
     }
     continueHandler();

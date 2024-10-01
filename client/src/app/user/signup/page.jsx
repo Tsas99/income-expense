@@ -74,7 +74,7 @@ const SignupPage = () => {
 
   return (
     <div className="flex flex-row justify-center items-center">
-      <div className=" flex flex-col w-[50%] h-screen items-center">
+      <div className=" flex flex-col  h-screen items-center">
         <AuthTitle
           title={"Create Geld account"}
           description={"Sign up below to create your Wallet account"}
