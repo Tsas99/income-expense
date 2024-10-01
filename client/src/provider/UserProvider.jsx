@@ -31,7 +31,7 @@ export const UserProvider = ({ children }) => {
         setIsLoggedIn(false);
         setToken("");
         setLoading(false);
-        router.push("/login");
+        router.push("/user/login");
       }
     } catch (err) {
       console.log(err);
@@ -47,7 +47,7 @@ export const UserProvider = ({ children }) => {
         password: password,
         username: username,
       });
-      router.push("/login");
+      router.push("/user/login");
     } catch (err) {
       throw new Error(err.response.data.message);
     }
@@ -64,7 +64,7 @@ export const UserProvider = ({ children }) => {
       setIsLoggedIn(false);
       setToken("");
       setLoading(false);
-      router.push("/login");
+      router.push("/user/login");
     }
   }, []);
   return (
