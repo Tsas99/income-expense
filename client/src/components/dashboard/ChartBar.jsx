@@ -1,72 +1,57 @@
-"use client";
-
-import React, { PureComponent } from "react";
+import React from "react";
 import {
   BarChart,
   Bar,
-  Rectangle,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 
-export const ChartBar = () => {
-  const data = [
-    {
-      name: "Jul",
-      uv: 2500,
-      pv: 3500,
-      amt: 2400,
-    },
-    {
-      name: "Jul",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: "Jul",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: "Jul",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: "Jul",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: "Jul",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: "Jul",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
+const data = [
+  {
+    name: "Mar",
+    income: 1000000,
+    expense: 2400000,
+  },
+  {
+    name: "Apr",
+    income: 3000000,
+    expense: 1398000,
+  },
+  {
+    name: "May",
+    income: 2000000,
+    expense: 9800000,
+  },
+  {
+    name: "Jun",
+    income: 2780000,
+    expense: 3908000,
+  },
+  {
+    name: "Jul",
+    income: 1890000,
+    expense: 4800000,
+  },
+  {
+    name: "Aug",
+    income: 2390000,
+    expense: 3800000,
+  },
+];
 
+export const IncomeChart = () => {
   return (
-    <div>
-      <div className="w-[588px] h-[284px] rounded-lg bg-[white]">
-        <p className="text-base font-semibold mt-4 ml-6">Income - Expense</p>
-        <div className="border-b-2 mt-4 "></div>
+    <div className="w-[688px] h-[286px] bg-white rounded-2xl">
+      <div className="border-b-[1px] border-b-slate-200 w-[688px]">
+        <div className="flex items-center space-x-1 pt-3 pb-3 pl-4 justify-between pr-4">
+          <div className="text-[14px] font-bold">Income - Expense</div>
+          <div className="text-slate-500 text-[14px]"></div>
+        </div>
+      </div>
+      <ResponsiveContainer width="100%" height="85%">
         <BarChart
-          width={588}
-          height={200}
           data={data}
           margin={{
             top: 5,
@@ -75,23 +60,18 @@ export const ChartBar = () => {
             bottom: 5,
           }}
         >
-          <CartesianGrid strokeDasharray="2 2" />
-          <XAxis dataKey="name" className="text-[16px]" />
-          <YAxis tickFormatter={(value) => `${(value / 5).toFixed(0)}000`} />
-          <Tooltip />
-          <Legend />
-          <Bar
-            dataKey="pv"
-            fill="#8884d8"
-            activeBar={<Rectangle fill="pink" stroke="blue" />}
+          <XAxis dataKey="name" className="text-[12px]" />
+          <YAxis
+            tickFormatter={(value) => `${(value / 1000000).toFixed(0)}M`}
           />
-          <Bar
-            dataKey="uv"
-            fill="#82ca9d"
-            activeBar={<Rectangle fill="gold" stroke="purple" />}
-          />
+          <Tooltip formatter={(value) => `${value.toLocaleString()}`} />
+
+          <Bar dataKey="expense" fill="#F97316" />
+          <Bar dataKey="income" fill="#84CC16" />
         </BarChart>
-      </div>
+      </ResponsiveContainer>
     </div>
   );
 };
+
+export default IncomeChart;

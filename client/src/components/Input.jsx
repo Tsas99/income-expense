@@ -2,7 +2,7 @@
 
 export const Input = ({ type, placeholder, value, inputHandler, name }) => {
   return (
-    <div className="w-[384px] h-[48px] rounded-lg bg-base-100 bg-slate-200">
+    <div className="w-[384px] h-[48px] rounded-lg  bg-slate-200">
       <input
         name={name}
         type={type}
