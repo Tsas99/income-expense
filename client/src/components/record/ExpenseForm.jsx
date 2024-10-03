@@ -2,6 +2,7 @@
 import React from "react";
 import Choose from "./Choose";
 import { Calendar } from "./Calendar";
+import { Time } from "./Time";
 
 const ExpenseForm = () => {
   return (
@@ -18,10 +19,14 @@ const ExpenseForm = () => {
         <div>Category</div>
         <Choose />
       </div>
-      <div className="flex justify-between w-[320px] m-4">
-        <div>
+      <div className="flex flex-row justify-between w-[320px] m-4">
+        <div className="flex flex-col">
           <p>Date</p>
           <Calendar value={"2024-10-02"} />
+        </div>
+        <div className=" flex flex-col">
+          <p>Time</p>
+          <Time value={"4:15 PM"} />
         </div>
       </div>
       <button className="btn m-4 w-[320px] rounded-3xl text-white bg-blue-600 hover:bg-blue-600">

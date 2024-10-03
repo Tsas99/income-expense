@@ -1,6 +1,6 @@
 import { DATABASE_URL } from "../../utils/constant.js";
 import { getDatabase } from "../../utils/helper.js";
-import { writeFileSync } from "fs";
+
 import { sql } from "../../database/index.js";
 
 export const balanceCreate = async (req, res) => {
@@ -20,5 +20,5 @@ export const balanceCreate = async (req, res) => {
   // database.users = updatedUsers;
 
   // await writeFileSync(DATABASE_URL, JSON.stringify(database), "utf-8");
-  res.status(200).send({ message: "Successfully updated" });
+  res.status(200).send(user[0].balance);
 };

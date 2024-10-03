@@ -1,6 +1,27 @@
-import React from "react";
+"use client";
+
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 export const Cart = () => {
+  //  backendruuu hand
+  // irsen datag stated usetate
+  const [balance, setBalance] = useState();
+  const token = window.localStorage.getItem("token");
+  const balanceHandler = async () => {
+    const { data } = await axios.get(`http://localhost:8000/api/user/balance`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    setBalance(data);
+  };
+  useEffect(() => {
+    if (token) {
+      balanceHandler();
+    }
+  });
+
   return (
     <div>
       <div className="relative">
@@ -24,7 +45,7 @@ export const Cart = () => {
         </div>
         <div className="absolute bottom-[35px] pl-[150px]">
           <p className="text-base font-normal text-slate-100">Cash</p>
-          <p className="text-xl font-semibold text-[#FFFFFF]">10,000,00</p>
+          <p className="text-xl font-semibold text-[#FFFFFF]">{balance}</p>
         </div>
       </div>
     </div>

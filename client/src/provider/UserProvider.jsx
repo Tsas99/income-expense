@@ -1,6 +1,6 @@
 "use client";
 
-import { API_URL } from "../utils/constant.js";
+// import { API_URL } from "../utils/constant.js";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
@@ -11,6 +11,7 @@ export const UserProvider = ({ children }) => {
   const [token, setToken] = useState("");
   const [loading, setLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, userDetail] = useState("");
 
   const router = useRouter();
 
