@@ -5,7 +5,6 @@ import { ExpenceIncome } from "./ExpenceIncome";
 import { PayeeInput } from "./PayeeInput";
 import { Amount } from "./Amount";
 import { CategorySelect } from "./CategorySelect";
-import { Calender } from "./Calendar";
 
 export const Records = () => {
   return (
@@ -29,7 +28,6 @@ export const Records = () => {
                 <ExpenceIncome />
                 <Amount />
                 <CategorySelect />
-                <Calender />
               </div>
               <div>
                 <PayeeInput />

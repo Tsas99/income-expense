@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
 import Choose from "./Choose";
-import Calender from "./Calender";
+import { Calendar } from "./Calendar";
 
 const ExpenseForm = () => {
   return (
@@ -20,11 +21,7 @@ const ExpenseForm = () => {
       <div className="flex justify-between w-[320px] m-4">
         <div>
           <p>Date</p>
-          <Calender value={"2024-10-02"} />
-        </div>
-        <div>
-          <p>Date</p>
-          <Calender value={"2024-10-02"} />
+          <Calendar value={"2024-10-02"} />
         </div>
       </div>
       <button className="btn m-4 w-[320px] rounded-3xl text-white bg-blue-600 hover:bg-blue-600">
