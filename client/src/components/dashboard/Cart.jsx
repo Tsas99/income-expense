@@ -1,26 +1,31 @@
 "use client";
-
+import { API_URL } from "@/utils/constant";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 export const Cart = () => {
   //  backendruuu hand
   // irsen datag stated usetate
-  const [balance, setBalance] = useState();
+  const [userInfo, setUserInfo] = useState();
   const token = window.localStorage.getItem("token");
-  const balanceHandler = async () => {
-    const { data } = await axios.get(`http://localhost:8000/api/user/balance`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    setBalance(data);
+
+  const balanceHandler = async (currency, balance) => {
+    try {
+      const { data } = await axios.get(`${API_URL}/api/user/checkCab`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setUserInfo(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     if (token) {
       balanceHandler();
     }
-  });
+  }, []);
 
   return (
     <div>
@@ -45,7 +50,10 @@ export const Cart = () => {
         </div>
         <div className="absolute bottom-[35px] pl-[150px]">
           <p className="text-base font-normal text-slate-100">Cash</p>
-          <p className="text-xl font-semibold text-[#FFFFFF]">{balance}</p>
+          <p className="text-xl font-semibold text-[#FFFFFF]">
+            {userInfo?.balance}
+            {userInfo?.currency}
+          </p>
         </div>
       </div>
     </div>

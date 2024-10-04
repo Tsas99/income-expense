@@ -8,10 +8,9 @@ export const getCurrencyAndBalanceByUserId = async (req, res) => {
   // const database = await getDatabase();
 
   // const user = database.users.find((el) => el.iserId === userId);
-  const isUserCurrency =
-    await sql`UPDATE users SET currency=${currency} WHERE userid = ${userId}`;
-  const isUserBalance =
-    await sql`UPDATE users SET balance=${balance} WHERE userId = ${userId}`;
+  const user = await sql`SELECT * FROM users  WHERE userid = ${userId}`;
+  // const isUserBalance = await sql`UPDATE users SET  WHERE userId = ${userId}`;
+  console.log(user[0]);
 
-  res.status(200).send({ currency: user.currency, balance: user.balance });
+  res.status(200).send(user[0]);
 };

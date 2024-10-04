@@ -20,5 +20,5 @@ export const balanceCreate = async (req, res) => {
   // database.users = updatedUsers;
 
   // await writeFileSync(DATABASE_URL, JSON.stringify(database), "utf-8");
-  res.status(200).send(user[0].balance);
+  res.status(200).send("Success");
 };

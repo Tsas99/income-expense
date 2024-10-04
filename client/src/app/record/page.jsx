@@ -2,6 +2,7 @@
 
 import { Category } from "@/components/record/Category";
 import { Days } from "@/components/record/Days";
+import { Range } from "@/components/record/Range";
 import Record from "@/components/record/Record";
 import { RecordHeader } from "@/components/record/RecordHeader";
 import { Types } from "@/components/record/Types";
@@ -23,6 +24,7 @@ const RecordPage = () => {
           />
           <Types />
           <Category />
+          <Range />
         </div>
         <div>
           <Days />
